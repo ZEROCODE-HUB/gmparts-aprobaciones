@@ -87,9 +87,11 @@ function CotizacionContent() {
           <h1 className="text-[#171717] font-bold text-xl">
             Servicio #{state.status === 'ready' ? state.data.numeroorden : ''}
           </h1>
-          <span className="bg-[#FF1D25] text-white text-[10px] font-semibold px-4 py-1.5 rounded shadow-md">
-            Cotización
-          </span>
+          {state.status === 'ready' && (
+            <span className="bg-[#FF1D25] text-white text-[10px] font-semibold px-4 py-1.5 rounded shadow-md">
+              {state.data.status}
+            </span>
+          )}
         </div>
 
         {state.status === 'loading' && (

@@ -23,6 +23,10 @@ export interface RecepcionData {
   placa: string
   marca: string
   modelo: string
+  anio?: string
+  nivelCombustible?: string
+  inventario?: string
+  observaciones?: string
   status: string
   aprobacionCotizacion: boolean
   subtotal: number
@@ -30,6 +34,10 @@ export interface RecepcionData {
   total: number
   fechaIngreso?: string
   fechaSalida?: string
+  tecnicoServicio?: string
+  tipoServicio?: string
+  motivoIngreso?: string
+  fotos?: string[]
   diagnosticos: Diagnostico[]
   quote_access_key?: string
   report_access_key?: string

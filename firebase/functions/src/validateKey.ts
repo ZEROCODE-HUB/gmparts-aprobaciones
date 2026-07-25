@@ -26,6 +26,10 @@ interface RecepcionData {
   placa: string
   marca: string
   modelo: string
+  anio?: string
+  nivelCombustible?: string
+  inventario?: string
+  observaciones?: string
   status: string
   aprobacionCotizacion: boolean
   subtotal: number
@@ -33,6 +37,10 @@ interface RecepcionData {
   total: number
   fechaIngreso?: string
   fechaSalida?: string
+  tecnicoServicio?: string
+  tipoServicio?: string
+  motivoIngreso?: string
+  fotos?: string[]
   diagnosticos: Diagnostico[]
 }
 
@@ -95,6 +103,10 @@ export const validateKey = functions.https.onCall(async (data) => {
     placa: docData.placa || '',
     marca: docData.marca || '',
     modelo: docData.modelo || '',
+    anio: docData.anio || undefined,
+    nivelCombustible: docData.nivelCombustible || undefined,
+    inventario: docData.inventario || undefined,
+    observaciones: docData.observaciones || undefined,
     status: docData.status || '',
     aprobacionCotizacion: docData.aprobacionCotizacion || false,
     subtotal: docData.subtotal || 0,
@@ -102,6 +114,10 @@ export const validateKey = functions.https.onCall(async (data) => {
     total: docData.total || 0,
     fechaIngreso: docData.fechaIngreso || undefined,
     fechaSalida: docData.fechaSalida || undefined,
+    tecnicoServicio: docData.tecnicoServicio || undefined,
+    tipoServicio: docData.tipoServicio || undefined,
+    motivoIngreso: docData.motivoIngreso || undefined,
+    fotos: docData.fotos || undefined,
     diagnosticos,
   }
 
