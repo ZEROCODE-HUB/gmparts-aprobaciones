@@ -1,21 +1,29 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
-        'gmp-dark': '#1A1A2E',
-        'gmp-dark-secondary': '#16213E',
-        'gmp-primary': '#E94560',
-        'gmp-card': '#0F3460',
-        'gmp-text-secondary': '#A0A0B0',
-        'gmp-border': '#2A2A4A',
+        'gmp-primary': '#FF1D25',
+        'gmp-primary-hover': '#E61920',
+        'gmp-dark': '#171717',
+        'gmp-dark-secondary': '#050505',
+        'gmp-card': '#F7F7F7',
+        'gmp-card-alt': '#E0E3E7',
+        'gmp-text': '#171717',
+        'gmp-text-secondary': '#BDBDBD',
+        'gmp-accent2': '#262626',
+        'gmp-accent4': '#492830',
+        'gmp-white-bg': '#FFFFFF',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        'gmp': '10px',
+        'gmp-sm': '8px',
+        'gmp-tag': '5px',
       },
     },
   },

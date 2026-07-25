@@ -76,88 +76,93 @@ function ConformidadContent() {
 
   if (state.status === 'success') {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-8">
-        <SuccessScreen
-          title="¡Gracias por tu conformidad!"
-          message="Tu conformidad ha sido registrada exitosamente. Agradecemos tu preferencia y esperamos verte pronto."
-        />
-      </div>
+      <SuccessScreen
+        title="¡Gracias por tu conformidad!"
+        message="Tu conformidad ha sido registrada exitosamente. Agradecemos tu preferencia y esperamos verte pronto."
+      />
     )
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-8">
-      <div className="mb-6 text-center">
-        <div className="w-12 h-12 bg-gmp-primary rounded-xl flex items-center justify-center font-bold text-xl mx-auto mb-2">
-          G
+    <div className="min-h-screen bg-gmp-dark">
+      <div className="max-w-2xl mx-auto px-5 py-6">
+        <div className="flex items-center justify-center mb-6">
+          <img
+            src="/logo.png"
+            alt="GM Parts"
+            className="w-36 h-auto rounded-gmp-sm"
+          />
         </div>
-        <h1 className="text-white text-xl font-bold">Conformidad de servicio</h1>
-        <p className="text-gmp-text-secondary text-sm">Revisa el trabajo realizado y danos tu opinión</p>
-      </div>
 
-      {state.status === 'loading' && (
-        <div className="flex flex-col items-center justify-center py-20">
-          <Loader2 className="w-8 h-8 text-gmp-primary animate-spin mb-4" />
-          <p className="text-gmp-text-secondary text-sm">Cargando informe...</p>
+        <div className="text-center mb-6">
+          <h1 className="text-white font-bold text-xl">Conformidad de servicio</h1>
+          <p className="text-gmp-text-secondary text-sm mt-1">Revisa el trabajo realizado y danos tu opinión</p>
         </div>
-      )}
 
-      {state.status === 'expired' && (
-        <div className="bg-gmp-dark-secondary rounded-xl p-8 border border-gmp-border text-center">
-          <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
-          <h2 className="text-white font-bold text-lg mb-2">Enlace no válido</h2>
-          <p className="text-gmp-text-secondary text-sm">
-            Este enlace ya fue utilizado o no es válido. Si crees que es un error, contacta al taller.
-          </p>
-        </div>
-      )}
+        {state.status === 'loading' && (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-8 h-8 text-gmp-primary animate-spin mb-4" />
+            <p className="text-gmp-text-secondary text-sm">Cargando informe...</p>
+          </div>
+        )}
 
-      {state.status === 'error' && (
-        <div className="bg-gmp-dark-secondary rounded-xl p-8 border border-gmp-border text-center">
-          <AlertCircle className="w-12 h-12 text-gmp-primary mx-auto mb-4" />
-          <h2 className="text-white font-bold text-lg mb-2">Error</h2>
-          <p className="text-gmp-text-secondary text-sm mb-4">{state.message}</p>
-          <button
-            onClick={fetchData}
-            className="inline-flex items-center gap-2 bg-gmp-primary text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-gmp-primary/90 transition-colors"
-          >
-            <RefreshCw className="w-4 h-4" />
-            Reintentar
-          </button>
-        </div>
-      )}
-
-      {state.status === 'ready' && (
-        <>
-          <ReportSummary data={state.data} />
-          <SatisfactionSurvey value={survey} onChange={setSurvey} />
-
-          {submitError && (
-            <div className="bg-gmp-primary/10 border border-gmp-primary/30 rounded-lg p-3 mt-4">
-              <p className="text-gmp-primary text-sm">{submitError}</p>
-            </div>
-          )}
-
-          <div className="mt-8 mb-12">
-            <button
-              onClick={handleSubmit}
-              className="w-full bg-gmp-primary text-white py-3.5 rounded-xl font-bold text-base hover:bg-gmp-primary/90 transition-colors active:scale-[0.98]"
-            >
-              Enviar conformidad
-            </button>
-            <p className="text-gmp-text-secondary text-xs text-center mt-2">
-              Al enviar, confirmas que el servicio fue realizado a tu satisfacción.
+        {state.status === 'expired' && (
+          <div className="bg-gmp-accent2 rounded-gmp p-6 text-center border border-gray-700">
+            <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-3" />
+            <h2 className="text-white font-bold text-lg mb-2">Enlace no válido</h2>
+            <p className="text-gmp-text-secondary text-sm">
+              Este enlace ya fue utilizado o no es válido. Si crees que es un error, contacta al taller.
             </p>
           </div>
-        </>
-      )}
+        )}
 
-      {state.status === 'submitting' && (
-        <div className="flex flex-col items-center justify-center py-20">
-          <Loader2 className="w-8 h-8 text-gmp-primary animate-spin mb-4" />
-          <p className="text-gmp-text-secondary text-sm">Enviando conformidad...</p>
-        </div>
-      )}
+        {state.status === 'error' && (
+          <div className="bg-gmp-accent2 rounded-gmp p-6 text-center border border-gray-700">
+            <AlertCircle className="w-12 h-12 text-gmp-primary mx-auto mb-3" />
+            <h2 className="text-white font-bold text-lg mb-2">Error</h2>
+            <p className="text-gmp-text-secondary text-sm mb-4">{state.message}</p>
+            <button
+              onClick={fetchData}
+              className="inline-flex items-center gap-2 bg-gmp-primary text-white px-6 py-2.5 rounded-gmp-sm font-medium text-sm hover:bg-gmp-primary-hover transition-colors"
+            >
+              <RefreshCw className="w-4 h-4" />
+              Reintentar
+            </button>
+          </div>
+        )}
+
+        {state.status === 'ready' && (
+          <>
+            <ReportSummary data={state.data} />
+            <div className="mt-5">
+              <SatisfactionSurvey value={survey} onChange={setSurvey} />
+            </div>
+
+            {submitError && (
+              <div className="bg-gmp-primary/10 border border-gmp-primary/30 rounded-gmp-sm p-3 mt-4">
+                <p className="text-gmp-primary text-sm">{submitError}</p>
+              </div>
+            )}
+
+            <div className="mt-8 mb-12">
+              <button
+                onClick={handleSubmit}
+                className="w-full bg-gmp-primary text-white py-2.5 rounded-gmp-sm font-semibold text-sm shadow-md hover:bg-gmp-primary-hover transition-colors active:scale-[0.98]"
+                style={{ height: '40px' }}
+              >
+                Enviar conformidad
+              </button>
+            </div>
+          </>
+        )}
+
+        {state.status === 'submitting' && (
+          <div className="flex flex-col items-center justify-center py-20">
+            <Loader2 className="w-8 h-8 text-gmp-primary animate-spin mb-4" />
+            <p className="text-gmp-text-secondary text-sm">Enviando conformidad...</p>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -165,9 +170,8 @@ function ConformidadContent() {
 export default function ConformidadPage() {
   return (
     <Suspense fallback={
-      <div className="flex flex-col items-center justify-center py-20">
-        <Loader2 className="w-8 h-8 text-gmp-primary animate-spin mb-4" />
-        <p className="text-gmp-text-secondary text-sm">Cargando...</p>
+      <div className="min-h-screen bg-gmp-dark flex items-center justify-center">
+        <Loader2 className="w-8 h-8 text-gmp-primary animate-spin" />
       </div>
     }>
       <ConformidadContent />

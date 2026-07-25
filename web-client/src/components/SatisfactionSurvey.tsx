@@ -33,7 +33,8 @@ function RatingGroup({
 }) {
   return (
     <div>
-      <p className="text-white text-sm mb-3">{question}</p>
+      <p className="text-white font-medium mb-2">{question}</p>
+      <p className="text-gmp-text-secondary text-xs mb-3">(Marca 1 Muy insatisfecho y 5 Muy satisfecho)</p>
       <div className="flex gap-3 items-center justify-center">
         {[1, 2, 3, 4, 5].map((num) => (
           <label key={num} className="flex flex-col items-center gap-1 cursor-pointer group">
@@ -57,9 +58,6 @@ function RatingGroup({
             >
               {num}
             </div>
-            <span className="text-[10px] text-gmp-text-secondary">
-              {num === 1 ? 'Malo' : num === 2 ? 'Regular' : num === 3 ? 'Bueno' : num === 4 ? 'Muy bueno' : 'Excelente'}
-            </span>
           </label>
         ))}
       </div>
@@ -73,7 +71,7 @@ export default function SatisfactionSurvey({ value, onChange }: SatisfactionSurv
   }
 
   return (
-    <div className="bg-gmp-dark-secondary rounded-xl p-5 border border-gmp-border space-y-6">
+    <div className="bg-gmp-accent2 border border-gray-700 rounded-gmp p-5 space-y-6">
       <h2 className="text-white font-semibold text-lg">Encuesta de satisfacción</h2>
       <p className="text-gmp-text-secondary text-sm">
         Ayúdanos a mejorar calificando nuestro servicio
@@ -91,15 +89,13 @@ export default function SatisfactionSurvey({ value, onChange }: SatisfactionSurv
       </div>
 
       <div>
-        <label className="block text-white text-sm mb-2">
-          Comentario adicional <span className="text-gmp-text-secondary">(opcional)</span>
-        </label>
+        <p className="text-white font-medium mb-2">¿Hay algo más que quieras compartir?</p>
         <textarea
           value={value.comment}
           onChange={(e) => onChange({ ...value, comment: e.target.value })}
-          placeholder="Escribe aquí tus comentarios..."
-          rows={4}
-          className="w-full bg-gmp-dark border border-gmp-border rounded-lg p-3 text-white text-sm placeholder:text-gmp-text-secondary focus:outline-none focus:border-gmp-primary transition-colors"
+          placeholder="Descripción"
+          rows={5}
+          className="w-full bg-gmp-dark border-0 rounded-gmp p-3 text-white text-sm placeholder:text-gmp-text-secondary focus:outline-none focus:ring-1 focus:ring-gmp-primary transition-colors"
         />
       </div>
     </div>

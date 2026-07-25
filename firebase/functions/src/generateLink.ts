@@ -1,7 +1,7 @@
 import * as functions from 'firebase-functions/v1'
 import * as admin from 'firebase-admin'
 
-const WEB_CLIENT_URL = process.env.WEB_CLIENT_URL || 'https://web-client.vercel.app'
+const WEB_CLIENT_URL = process.env.WEB_CLIENT_URL || 'https://gmparts-aprobaciones.vercel.app'
 
 export const generateLink = functions.https.onCall(async (data) => {
   const { receptionId, purpose } = data
