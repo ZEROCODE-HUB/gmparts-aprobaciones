@@ -96,13 +96,13 @@ function ConformidadContent() {
 
         <div className="text-center mb-6">
           <h1 className="text-white font-bold text-xl">Conformidad de servicio</h1>
-          <p className="text-[#BDBDBD] text-sm mt-1">Revisa el trabajo realizado y danos tu opinión</p>
+          <p className="text-white/70 text-sm mt-1">Revisa el trabajo realizado y danos tu opinión</p>
         </div>
 
         {state.status === 'loading' && (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-8 h-8 text-[#FF1D25] animate-spin mb-4" />
-            <p className="text-[#BDBDBD] text-sm">Cargando informe...</p>
+            <p className="text-white/70 text-sm">Cargando informe...</p>
           </div>
         )}
 
@@ -110,7 +110,7 @@ function ConformidadContent() {
           <div className="bg-[#262626] rounded-[10px] p-6 text-center border border-gray-700">
             <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-3" />
             <h2 className="text-white font-bold text-lg mb-2">Enlace no válido</h2>
-            <p className="text-[#BDBDBD] text-sm">Este enlace ya fue utilizado o no es válido. Si crees que es un error, contacta al taller.</p>
+            <p className="text-white/70 text-sm">Este enlace ya fue utilizado o no es válido. Si crees que es un error, contacta al taller.</p>
           </div>
         )}
 
@@ -118,7 +118,7 @@ function ConformidadContent() {
           <div className="bg-[#262626] rounded-[10px] p-6 text-center border border-gray-700">
             <AlertCircle className="w-12 h-12 text-[#FF1D25] mx-auto mb-3" />
             <h2 className="text-white font-bold text-lg mb-2">Error</h2>
-            <p className="text-[#BDBDBD] text-sm mb-4">{state.message}</p>
+            <p className="text-white/70 text-sm mb-4">{state.message}</p>
             <button onClick={fetchData} className="inline-flex items-center gap-2 bg-[#FF1D25] text-white px-6 py-2.5 rounded-[8px] font-medium text-sm hover:bg-[#E61920] transition-colors shadow-md">
               <RefreshCw className="w-4 h-4" /> Reintentar
             </button>
@@ -153,7 +153,7 @@ function ConformidadContent() {
         {state.status === 'submitting' && (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-8 h-8 text-[#FF1D25] animate-spin mb-4" />
-            <p className="text-[#BDBDBD] text-sm">Enviando conformidad...</p>
+            <p className="text-white/70 text-sm">Enviando conformidad...</p>
           </div>
         )}
       </div>

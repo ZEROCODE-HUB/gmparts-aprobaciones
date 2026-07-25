@@ -34,7 +34,7 @@ function RatingGroup({
   return (
     <div>
       <p className="text-white font-medium mb-2">{question}</p>
-      <p className="text-gmp-text-secondary text-xs mb-3">(Marca 1 Muy insatisfecho y 5 Muy satisfecho)</p>
+      <p className="text-white/70 text-xs mb-3">(Marca 1 Muy insatisfecho y 5 Muy satisfecho)</p>
       <div className="flex gap-3 items-center justify-center">
         {[1, 2, 3, 4, 5].map((num) => (
           <label key={num} className="flex flex-col items-center gap-1 cursor-pointer group">
@@ -52,7 +52,7 @@ function RatingGroup({
                 transition-all duration-200 border-2
                 ${value === num.toString()
                   ? 'bg-gmp-primary border-gmp-primary text-white scale-110'
-                  : 'bg-transparent border-gmp-text-secondary text-gmp-text-secondary hover:border-gmp-primary hover:text-gmp-primary'
+                  : 'bg-transparent border-white/30 text-white hover:border-gmp-primary hover:text-white'
                 }
               `}
             >
@@ -73,7 +73,7 @@ export default function SatisfactionSurvey({ value, onChange }: SatisfactionSurv
   return (
     <div className="bg-gmp-accent2 border border-gray-700 rounded-gmp p-5 space-y-6">
       <h2 className="text-white font-semibold text-lg">Encuesta de satisfacción</h2>
-      <p className="text-gmp-text-secondary text-sm">
+      <p className="text-white/70 text-sm">
         Ayúdanos a mejorar calificando nuestro servicio
       </p>
 
@@ -95,7 +95,7 @@ export default function SatisfactionSurvey({ value, onChange }: SatisfactionSurv
           onChange={(e) => onChange({ ...value, comment: e.target.value })}
           placeholder="Descripción"
           rows={5}
-          className="w-full bg-gmp-dark border-0 rounded-gmp p-3 text-white text-sm placeholder:text-gmp-text-secondary focus:outline-none focus:ring-1 focus:ring-gmp-primary transition-colors"
+          className="w-full bg-gmp-dark border-0 rounded-gmp p-3 text-white text-[16px] placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-gmp-primary transition-colors"
         />
       </div>
     </div>
