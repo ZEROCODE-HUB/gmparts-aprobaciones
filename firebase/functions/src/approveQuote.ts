@@ -37,7 +37,7 @@ export const approveQuote = functions.https.onCall(async (data) => {
 
   await doc.ref.update({
     aprobacionCotizacion: true,
-    status: 'Cotización aprobada',
+    status: 'Reparación',
     quote_access_key: admin.firestore.FieldValue.delete(),
   })
 
