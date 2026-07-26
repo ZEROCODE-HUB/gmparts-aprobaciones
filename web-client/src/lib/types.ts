@@ -41,6 +41,8 @@ export interface RecepcionData {
   diagnosticos: Diagnostico[]
   quote_access_key?: string
   report_access_key?: string
+  reception_access_key?: string
+  aprobacionCliente?: boolean
   clientecontrolcalidad1?: string
   clientecontrolcalidad2?: string
   clientecontrolcalidad3?: string
@@ -64,6 +66,10 @@ export interface SurveyData {
 }
 
 export interface ApproveReportResponse {
+  success: boolean
+}
+
+export interface ApproveReceptionResponse {
   success: boolean
 }
 
