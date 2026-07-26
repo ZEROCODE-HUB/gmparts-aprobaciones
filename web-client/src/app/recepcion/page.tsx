@@ -2,16 +2,16 @@
 
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState, Suspense } from 'react'
-import { AlertCircle, RefreshCw, Loader2, CheckCircle2, XCircle } from 'lucide-react'
+import { AlertCircle, RefreshCw, Loader2, CheckCircle2 } from 'lucide-react'
 import { validateKey, approveReception } from '@/lib/api'
-import type { RecepctionData } from '@/lib/types'
+import type { RecepcionData } from '@/lib/types'
 
 type PageState =
   | { status: 'loading' }
   | { status: 'error'; message: string }
   | { status: 'expired' }
   | { status: 'already-approved' }
-  | { status: 'ready'; data: RecepctionData }
+      | { status: 'ready'; data: RecepcionData }
   | { status: 'approving' }
   | { status: 'approved' }
 
