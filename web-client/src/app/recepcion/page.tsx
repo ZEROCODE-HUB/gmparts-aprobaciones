@@ -194,6 +194,20 @@ function RecepcionContent() {
               </div>
             )}
 
+            {state.data.inventario && state.data.inventario.length > 0 && (
+              <div className="bg-[#F7F7F7] rounded-[10px] p-5 space-y-3">
+                <h2 className="font-semibold text-[#171717] text-sm uppercase tracking-wide">Inventario del vehículo</h2>
+                <div className="space-y-1">
+                  {state.data.inventario.map((item, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <span className="text-green-600 text-sm">✓</span>
+                      <span className="text-[#171717] text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <p className="text-center text-[#636363] text-xs pt-2">
               Verifica si los datos son correctos. Al confirmar, avanzarás automáticamente a la fase de diagnóstico.
             </p>

@@ -25,7 +25,7 @@ export interface RecepcionData {
   modelo: string
   anio?: string
   nivelCombustible?: string
-  inventario?: string
+  inventario?: string[]
   observaciones?: string
   status: string
   aprobacionCotizacion: boolean

@@ -95,7 +95,7 @@ export default function SatisfactionSurvey({ value, onChange }: SatisfactionSurv
           onChange={(e) => onChange({ ...value, comment: e.target.value })}
           placeholder="Descripción"
           rows={5}
-          className="w-full bg-gmp-dark border-0 rounded-gmp p-3 text-white text-[16px] placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-gmp-primary transition-colors"
+          className="w-full bg-gmp-dark border border-white/40 rounded-gmp p-3 text-white text-[16px] placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-gmp-primary transition-colors"
         />
       </div>
     </div>
