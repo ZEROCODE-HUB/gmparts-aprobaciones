@@ -194,6 +194,23 @@ function RecepcionContent() {
               </div>
             )}
 
+            {state.data.fotos && state.data.fotos.length > 0 && (
+              <div className="bg-[#F7F7F7] rounded-[10px] p-5 space-y-3">
+                <h2 className="font-semibold text-[#171717] text-sm uppercase tracking-wide">Fotos del vehículo</h2>
+                <div className="flex gap-3 overflow-x-auto pb-1">
+                  {state.data.fotos.map((foto, fidx) => (
+                    <img
+                      key={fidx}
+                      src={foto}
+                      alt={`Foto ${fidx + 1}`}
+                      className="w-24 h-24 object-cover rounded-[8px] flex-shrink-0"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {state.data.inventario && state.data.inventario.length > 0 && (
               <div className="bg-[#F7F7F7] rounded-[10px] p-5 space-y-3">
                 <h2 className="font-semibold text-[#171717] text-sm uppercase tracking-wide">Inventario del vehículo</h2>
