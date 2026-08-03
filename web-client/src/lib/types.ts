@@ -11,6 +11,10 @@ export interface Diagnostico {
   fotos: string[]
   repuestos: Repuesto[]
   manoDeObra: number
+  imagenesFinalizado?: string[]
+  fotosfinalizar?: string[]
+  precioservicio?: number
+  nombreServicio?: string
   aprobacionCliente?: boolean
 }
 
@@ -38,6 +42,7 @@ export interface RecepcionData {
   tipoServicio?: string
   motivoIngreso?: string
   fotos?: string[]
+  fotosFinalizacion?: string[]
   diagnosticos: Diagnostico[]
   quote_access_key?: string
   report_access_key?: string

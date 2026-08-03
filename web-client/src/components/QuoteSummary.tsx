@@ -59,10 +59,17 @@ export default function QuoteSummary({ data }: QuoteSummaryProps) {
               <span className="text-[#171717] text-sm font-bold">{data.nivelCombustible}</span>
             </div>
           )}
-          {data.inventario && (
-            <div className="flex justify-between">
+          {data.inventario && data.inventario.length > 0 && (
+            <div className="space-y-1">
               <span className="text-[#262626] text-xs font-medium">Inventario:</span>
-              <span className="text-[#171717] text-sm font-bold">{data.inventario}</span>
+              <div className="pl-1">
+                {data.inventario.map((item, i) => (
+                  <div key={i} className="flex items-start gap-2 py-0.5">
+                    <span className="text-green-600 text-sm leading-5">•</span>
+                    <span className="text-[#171717] text-sm font-bold">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
           {data.observaciones && (

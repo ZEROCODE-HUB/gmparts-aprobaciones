@@ -194,6 +194,13 @@ function RecepcionContent() {
               </div>
             )}
 
+            {state.data.observaciones && (
+              <div className="bg-[#F7F7F7] rounded-[10px] p-5 space-y-3">
+                <h2 className="font-semibold text-[#171717] text-sm uppercase tracking-wide">Observaciones adicionales</h2>
+                <p className="text-[#171717] text-sm">{state.data.observaciones}</p>
+              </div>
+            )}
+
             {state.data.fotos && state.data.fotos.length > 0 && (
               <div className="bg-[#F7F7F7] rounded-[10px] p-5 space-y-3">
                 <h2 className="font-semibold text-[#171717] text-sm uppercase tracking-wide">Fotos del vehículo</h2>

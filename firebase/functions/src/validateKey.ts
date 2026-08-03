@@ -14,6 +14,10 @@ interface Diagnostico {
   fotos: string[]
   repuestos: Repuesto[]
   manoDeObra: number
+  imagenesFinalizado?: string[]
+  fotosfinalizar?: string[]
+  precioservicio?: number
+  nombreServicio?: string
   aprobacionCliente?: boolean
 }
 
@@ -41,6 +45,7 @@ interface RecepcionData {
   tipoServicio?: string
   motivoIngreso?: string
   fotos?: string[]
+  fotosFinalizacion?: string[]
   diagnosticos: Diagnostico[]
 }
 
@@ -54,10 +59,10 @@ export const validateKey = functions.https.onCall(async (data) => {
     )
   }
 
-  if (purpose !== 'quote' && purpose !== 'report') {
+  if (purpose !== 'quote' && purpose !== 'report' && purpose !== 'reception') {
     throw new functions.https.HttpsError(
       'invalid-argument',
-      'purpose debe ser "quote" o "report"'
+      'purpose debe ser "quote", "report" o "reception"'
     )
   }
 
@@ -90,6 +95,10 @@ export const validateKey = functions.https.onCall(async (data) => {
         total: r.total || 0,
       })),
       manoDeObra: diagData.manoDeObra || 0,
+      imagenesFinalizado: diagData.imagenes_finalizado || [],
+      fotosfinalizar: diagData.Fotosfinalizar || [],
+      precioservicio: diagData.precioservicio || 0,
+      nombreServicio: diagData.nombre_servicio || '',
       aprobacionCliente: diagData.aprobacionCliente || false,
     }
   })
@@ -118,6 +127,7 @@ export const validateKey = functions.https.onCall(async (data) => {
     tipoServicio: docData.tipoServicio || undefined,
     motivoIngreso: docData.motivoIngreso || undefined,
     fotos: docData.fotos || undefined,
+    fotosFinalizacion: docData.fotos_finalizacion || undefined,
     diagnosticos,
   }
 
