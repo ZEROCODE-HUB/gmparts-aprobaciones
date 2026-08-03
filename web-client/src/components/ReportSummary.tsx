@@ -1,7 +1,7 @@
 'use client'
 
 import type { RecepcionData } from '@/lib/types'
-import { formatCurrency, formatDate } from '@/lib/utils'
+import { formatCurrency, formatDate, formatDateTime } from '@/lib/utils'
 
 interface ReportSummaryProps {
   data: RecepcionData
