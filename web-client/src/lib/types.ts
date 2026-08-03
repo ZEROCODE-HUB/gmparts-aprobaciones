@@ -43,6 +43,7 @@ export interface RecepcionData {
   motivoIngreso?: string
   fotos?: string[]
   fotosFinalizacion?: string[]
+  comentariosFinalizacion?: string
   diagnosticos: Diagnostico[]
   quote_access_key?: string
   report_access_key?: string

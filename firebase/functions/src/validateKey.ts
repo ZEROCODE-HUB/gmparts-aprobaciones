@@ -46,6 +46,7 @@ interface RecepcionData {
   motivoIngreso?: string
   fotos?: string[]
   fotosFinalizacion?: string[]
+  comentariosFinalizacion?: string
   aprobacionCliente?: boolean
   diagnosticos: Diagnostico[]
 }
@@ -137,6 +138,7 @@ export const validateKey = functions.https.onCall(async (data) => {
     motivoIngreso: docData.motivoIngreso ?? docData.motivo_ingreso ?? undefined,
     fotos: docData.fotos ?? undefined,
     fotosFinalizacion: docData.fotosFinalizacion ?? docData.fotos_finalizacion ?? undefined,
+    comentariosFinalizacion: docData.comentariosFinalizacion ?? docData.comentarios_finalizacion ?? undefined,
     aprobacionCliente: docData.aprobacionCliente ?? docData.aprobacion_cliente ?? false,
     diagnosticos,
   }

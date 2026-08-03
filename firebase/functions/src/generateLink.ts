@@ -13,10 +13,10 @@ export const generateLink = functions.https.onCall(async (data) => {
     )
   }
 
-  if (purpose !== 'quote' && purpose !== 'report') {
+  if (purpose !== 'quote' && purpose !== 'report' && purpose !== 'reception') {
     throw new functions.https.HttpsError(
       'invalid-argument',
-      'purpose debe ser "quote" o "report"'
+      'purpose debe ser "quote", "report" o "reception"'
     )
   }
 
@@ -42,7 +42,11 @@ export const generateLink = functions.https.onCall(async (data) => {
     [fieldName]: key,
   })
 
-  const path = purpose === 'quote' ? 'cotizacion' : 'conformidad'
+  const path = purpose === 'quote'
+    ? 'cotizacion'
+    : purpose === 'report'
+      ? 'conformidad'
+      : 'recepcion'
   const url = `${WEB_CLIENT_URL}/${path}?key=${key}`
 
   return { url }

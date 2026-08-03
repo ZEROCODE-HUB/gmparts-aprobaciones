@@ -97,6 +97,23 @@ export default function ReportSummary({ data }: ReportSummaryProps) {
             <h3 className="text-white font-semibold mb-2">{diag.nombreFalla}</h3>
             <p className="text-white/70 text-sm mb-4">{diag.solucion}</p>
 
+            {diag.fotos && diag.fotos.length > 0 && (
+              <div className="mb-4">
+                <p className="text-white/70 text-xs font-medium mb-2">Fotos de la falla</p>
+                <div className="grid grid-cols-3 gap-2">
+                  {diag.fotos.map((foto, fidx) => (
+                    <img
+                      key={fidx}
+                      src={foto}
+                      alt={`Foto falla ${idx + 1}-${fidx + 1}`}
+                      className="w-full aspect-square object-cover rounded-gmp-sm border border-gray-600"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {diag.repuestos && diag.repuestos.length > 0 && (
               <div className="mb-4">
                 <p className="text-white/70 text-xs font-medium mb-2">Repuestos utilizados</p>
@@ -151,6 +168,13 @@ export default function ReportSummary({ data }: ReportSummaryProps) {
           </div>
         ))}
       </div>
+
+      {data.comentariosFinalizacion && (
+        <div className="bg-gmp-accent2 border border-gray-700 rounded-gmp p-4">
+          <h3 className="text-white font-semibold text-base mb-3">Comentarios de finalización</h3>
+          <p className="text-white/70 text-sm">{data.comentariosFinalizacion}</p>
+        </div>
+      )}
 
       {data.fotosFinalizacion && data.fotosFinalizacion.length > 0 && (
         <div className="bg-gmp-accent2 border border-gray-700 rounded-gmp p-4">
