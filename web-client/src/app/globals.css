@@ -1,6 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Montserrat', system-ui, sans-serif;
+
+  --color-gmp-primary: #FF1D25;
+  --color-gmp-primary-hover: #E61920;
+  --color-gmp-dark: #171717;
+  --color-gmp-dark-secondary: #050505;
+  --color-gmp-card: #F7F7F7;
+  --color-gmp-card-alt: #E0E3E7;
+  --color-gmp-text: #171717;
+  --color-gmp-text-secondary: #BDBDBD;
+  --color-gmp-accent2: #262626;
+  --color-gmp-accent4: #492830;
+  --color-gmp-white-bg: #FFFFFF;
+
+  --radius-gmp: 10px;
+  --radius-gmp-sm: 8px;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -102,7 +102,7 @@ export default function ReportSummary({ data }: ReportSummaryProps) {
                 <p className="text-white/70 text-xs font-medium mb-2">Repuestos utilizados</p>
                 <div className="space-y-2">
                   {diag.repuestos.map((rep, ridx) => (
-                    <div key={ridx} className="bg-[#E0E3E7] bg-opacity-10 rounded-[8px] p-3">
+                    <div key={ridx} className="bg-[#E0E3E7]/10 rounded-[8px] p-3">
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-white text-sm font-medium">{rep.nombre}</span>
                         <span className="text-white/70 text-xs">Cant: {rep.cantidad}</span>
@@ -118,7 +118,7 @@ export default function ReportSummary({ data }: ReportSummaryProps) {
             )}
 
             {diag.manoDeObra > 0 && (
-              <div className="bg-[#E0E3E7] bg-opacity-10 rounded-[10px] p-3 flex justify-between items-center mb-4">
+              <div className="bg-[#E0E3E7]/10 rounded-[10px] p-3 flex justify-between items-center mb-4">
                 <span className="text-white text-sm">
                   {diag.nombreServicio || diag.nombreFalla || 'Mano de obra'}
                 </span>

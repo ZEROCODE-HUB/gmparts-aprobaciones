@@ -138,6 +138,20 @@ export default function QuoteSummary({ data }: QuoteSummaryProps) {
               <p className="text-[#171717] text-sm">{diag.solucion}</p>
             </div>
 
+            <div className="mb-4">
+              <p className="text-[#262626] text-xs font-medium mb-1">Servicio</p>
+              <div className="flex justify-between items-center">
+                <p className="text-[#171717] text-sm">
+                  {diag.nombreServicio || 'Mano de obra'}
+                </p>
+                {diag.precioservicio != null && diag.precioservicio > 0 && (
+                  <p className="text-[#171717] text-sm font-semibold">
+                    {formatCurrency(diag.precioservicio)}
+                  </p>
+                )}
+              </div>
+            </div>
+
             {diag.fotos && diag.fotos.length > 0 && (
               <div className="mb-4">
                 <p className="text-[#262626] text-xs font-medium mb-2">Fotos</p>
